@@ -115,6 +115,11 @@
 		CB975DDC18C70E5C0017FA11 /* ByThePublic */ = {
 			isa = PBXGroup;
 			children = (
+				CB975E0918C70EC50017FA11 /* Capture */,
+				CB975E0A18C70EC50017FA11 /* CommonElements */,
+				CB975E0B18C70EC50017FA11 /* Constants */,
+				CB975E0C18C70EC50017FA11 /* Submit */,
+				CB975E0D18C70EC50017FA11 /* SuccessScreens */,
 				CB975DE518C70E5C0017FA11 /* AppDelegate.h */,
 				CB975DE618C70E5C0017FA11 /* AppDelegate.m */,
 				CB975DEB18C70E5D0017FA11 /* Images.xcassets */,
@@ -151,6 +156,41 @@
 				CB975DFC18C70E5D0017FA11 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB975E0918C70EC50017FA11 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
+		CB975E0A18C70EC50017FA11 /* CommonElements */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CommonElements;
+			sourceTree = "<group>";
+		};
+		CB975E0B18C70EC50017FA11 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		CB975E0C18C70EC50017FA11 /* Submit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Submit;
+			sourceTree = "<group>";
+		};
+		CB975E0D18C70EC50017FA11 /* SuccessScreens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SuccessScreens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
