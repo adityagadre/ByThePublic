@@ -8,7 +8,7 @@ function deliver_response($status, $status_message, $data) {
 	$json_response = json_encode ( $response );
 	echo $json_response;
 }
-
+$passwd='by-the-public';
 header ( "Content-Type:application/json" );
 if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 	if (isset ( $_GET ["cmd"] )) {
@@ -16,7 +16,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 		if ($cmd == 1) {
 			$arr = $_GET;
 			// Connecting, selecting database
-			$link = mysql_connect ( 'localhost', 'root', '' ) or die ( 'Could not connect: ' . mysql_error () );
+			$link = mysql_connect ( 'localhost', 'root', $passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
 			
 			$insData = array (
@@ -49,7 +49,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 		} else if ($cmd == 2) {
 			$arr = $_GET;
 			// Connecting, selecting database
-			$link = mysql_connect ( 'localhost', 'root', '' ) or die ( 'Could not connect: ' . mysql_error () );
+			$link = mysql_connect ( 'localhost', 'root',$passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
 			
 			$insData = array (
@@ -73,7 +73,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 		} else if ($cmd == 3) {
 			$arr = $_GET;
 			// Connecting, selecting database
-			$link = mysql_connect ( 'localhost', 'root', '' ) or die ( 'Could not connect: ' . mysql_error () );
+			$link = mysql_connect ( 'localhost', 'root',$passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
 			
 			$insData = array (
@@ -99,7 +99,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 		} else if ($cmd == 4) {
 			$arr = $_GET;
 			// Connecting, selecting database
-			$link = mysql_connect ( 'localhost', 'root', '' ) or die ( 'Could not connect: ' . mysql_error () );
+			$link = mysql_connect ( 'localhost', 'root',$passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
 			
 			$sql = "select * from POST where latitude >= $arr[latup] and latitude <= $arr[latdown] and longitude >= $arr[longup] and longitude <= $arr[longdown]";
@@ -119,7 +119,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 		} else if ($cmd == 5) {
 			$arr = $_GET;
 			// Connecting, selecting database
-			$link = mysql_connect ( 'localhost', 'root', '' ) or die ( 'Could not connect: ' . mysql_error () );
+			$link = mysql_connect ( 'localhost', 'root',$passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
 			
 			$sql = "select * from POST where post_id='$arr[pid]'";
@@ -139,7 +139,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 		}  else if ($cmd == 6) {
 			$arr = $_GET;
 			// Connecting, selecting database
-			$link = mysql_connect ( 'localhost', 'root', '' ) or die ( 'Could not connect: ' . mysql_error () );
+			$link = mysql_connect ( 'localhost', 'root',$passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
 			
 			$sql = "select * from POST where url='$arr[url]'";
@@ -159,7 +159,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 		}   else if ($cmd == 7) {
 			$arr = $_GET;
 			// Connecting, selecting database
-			$link = mysql_connect ( 'localhost', 'root', '' ) or die ( 'Could not connect: ' . mysql_error () );
+			$link = mysql_connect ( 'localhost', 'root',$passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
 			
 			$sql = "select comment_id,content,comment_spam,comment_time,user_name from comments inner join users on comments.USER_ID=users.USER_ID where post_id=$arr[pid]";
