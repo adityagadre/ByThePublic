@@ -1,0 +1,10 @@
+#wrapper {
+    background:#000;
+    overflow: hidden
+}
+#c1 {
+    float:left;
+}
+#c2 {
+    float: right
+}
