@@ -1,5 +1,4 @@
 <?php
-phpinfo();
 function deliver_response($status, $status_message, $data) {
 	header ( "HTTP/1.1 $status $status_message" );
 	$response ['status'] = $status;
@@ -11,13 +10,18 @@ function deliver_response($status, $status_message, $data) {
 }
 $server='127.0.0.1:3306';
 $user='root';
+//$passwd='';
 $passwd='by-the-public';
 header ( "Content-Type:application/json" );
-if ($_SERVER ['REQUEST_METHOD'] === 'GET')
-	if (isset ( $_GET ["cmd"] )) {
-		$cmd = $_GET ["cmd"];
+if ($_SERVER ['REQUEST_METHOD'] === 'POST')
+
+	
+	$json=json_decode($HTTP_RAW_POST_DATA,true);
+
+	if (isset ( $json ["cmd"] )) {
+		$cmd = $json ["cmd"];
+		$arr = $json["data"];
 		if ($cmd == 1) {
-			$arr = $_GET;
 			// Connecting, selecting database
 			$link = mysql_connect ( $server, $user, $passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
@@ -48,9 +52,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 			// Closing connection
 			mysql_close ( $link );
 			
-			deliver_response ( 200, "Success", null );
 		} else if ($cmd == 2) {
-			$arr = $_GET;
 			// Connecting, selecting database
 			$link = mysql_connect ( $server, $user, $passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
@@ -74,7 +76,6 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 			// Closing connection
 			mysql_close ( $link );
 		} else if ($cmd == 3) {
-			$arr = $_GET;
 			// Connecting, selecting database
 			$link = mysql_connect ( $server, $user, $passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
@@ -100,7 +101,6 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 			// Closing connection
 			mysql_close ( $link );
 		} else if ($cmd == 4) {
-			$arr = $_GET;
 			// Connecting, selecting database
 			$link = mysql_connect ( $server, $user, $passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
@@ -120,7 +120,6 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 			// Closing connection
 			mysql_close ( $link );
 		} else if ($cmd == 5) {
-			$arr = $_GET;
 			// Connecting, selecting database
 			$link = mysql_connect ( $server, $user, $passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
@@ -140,7 +139,6 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 			// Closing connection
 			mysql_close ( $link );
 		}  else if ($cmd == 6) {
-			$arr = $_GET;
 			// Connecting, selecting database
 			$link = mysql_connect ( $server, $user, $passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
@@ -160,7 +158,6 @@ if ($_SERVER ['REQUEST_METHOD'] === 'GET')
 			// Closing connection
 			mysql_close ( $link );
 		}   else if ($cmd == 7) {
-			$arr = $_GET;
 			// Connecting, selecting database
 			$link = mysql_connect ( $server, $user, $passwd ) or die ( 'Could not connect: ' . mysql_error () );
 			mysql_select_db ( 'bythepublic' ) or die ( 'Could not select database' );
